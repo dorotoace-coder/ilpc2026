@@ -1,9 +1,5 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    {
-      "source": "/ilpc2026(.*)",
-      "destination": "/ilpc2026/index.html"
-    }
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
