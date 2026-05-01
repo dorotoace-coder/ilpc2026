@@ -12,7 +12,7 @@ const benefits = [
 
 const RegisterSection = () => {
   const whatsappLink =
-    "https://wa.me/2348000000000?text=Hello%2C%20I%20would%20like%20to%20register%20for%20ILPC%202026%20-%20Fresh%20Oil%20for%20a%20New%20Season";
+    "https://wa.me/2348122166179?text=Hello%2C%20I%20would%20like%20to%20register%20for%20ILPC%202026%20-%20Fresh%20Oil%20for%20a%20New%20Season";
 
   return (
     <section
