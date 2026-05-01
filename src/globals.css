@@ -33,6 +33,10 @@
     --ring: 45 65% 47%;
 
     --radius: 0.75rem;
+
+    --lilac: 280 30% 56%;
+    --lilac-light: 280 40% 70%;
+    --lilac-dark: 280 25% 40%;
   }
 }
 
@@ -71,6 +75,11 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes pulse-lilac {
+  0%, 100% { box-shadow: 0 0 15px rgba(155, 114, 170, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(155, 114, 170, 0.4); }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
@@ -96,6 +105,10 @@
   animation: rotate-slow 30s linear infinite;
 }
 
+.animate-pulse-lilac {
+  animation: pulse-lilac 3s ease-in-out infinite;
+}
+
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -113,6 +126,21 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.lilac-gradient {
+  background: linear-gradient(135deg, #9B72AA, #B88FC7, #9B72AA);
+}
+
+.lilac-text {
+  background: linear-gradient(135deg, #9B72AA, #B88FC7, #9B72AA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lilac-gold-gradient {
+  background: linear-gradient(135deg, #9B72AA, #C9972A, #B88FC7);
 }
 
 .purple-glow {
@@ -133,4 +161,11 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(201, 151, 42, 0.15);
+}
+
+.glass-lilac {
+  background: rgba(155, 114, 170, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(155, 114, 170, 0.25);
 }
