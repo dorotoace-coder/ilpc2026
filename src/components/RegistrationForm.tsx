@@ -7,8 +7,6 @@ const designations = [
   "Church Leader", "Minister", "Missionary", "Christian Worker", "Other",
 ];
 
-const FORMSPREE_URL = "https://formspree.io/f/xkoygewp";
-
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -29,16 +27,10 @@ const RegistrationForm = () => {
     e.preventDefault();
     setStatus("submitting");
     try {
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch("/api/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          "Full Name": formData.fullName,
-          "Email": formData.email,
-          "Ministry / Church": formData.ministry,
-          "Designation": formData.designation,
-          "Desire from ILPC 2026": formData.desire,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
       if (res.ok) {
         setStatus("success");
@@ -66,10 +58,11 @@ const RegistrationForm = () => {
           <h3 className="text-2xl font-bold text-white mb-2">Registration Complete!</h3>
           <p className="text-[#B88FC7] text-sm leading-relaxed mb-2">
             Thank you, <span className="text-[#C9972A] font-semibold">{formData.fullName}</span>!
-            Your spot at ILPC 2026 is secured.
+            Your registration for ILPC 2026 has been received.
           </p>
-          <p className="text-white/40 text-xs">
-            A confirmation has been sent to <span className="text-white/60">{formData.email}</span>
+          <p className="text-white/60 text-xs leading-relaxed">
+            A confirmation email is on its way to <span className="text-white/80">{formData.email}</span>.<br />
+            <span className="text-[#C9972A]">Come expecting a fresh encounter with God.</span>
           </p>
         </div>
       </div>
@@ -206,7 +199,7 @@ const RegistrationForm = () => {
         </button>
 
         <p className="text-white/30 text-[10px] text-center mt-3">
-          Free registration • Confirmation sent to your email
+          Free registration • Your details go directly to the ILPC team
         </p>
       </form>
     </div>
