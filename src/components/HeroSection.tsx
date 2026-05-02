@@ -13,19 +13,41 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ background: "linear-gradient(160deg, #1A0533 0%, #2D0A4E 40%, #3D1560 100%)" }}
     >
-      {/* Pastor Amos ghost background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
-        <img
-          src="/pastor-amos.png"
-          alt=""
-          className="absolute w-[520px] sm:w-[680px] max-w-none object-contain"
-          style={{ opacity: 0.07, filter: "grayscale(40%) blur(1px)", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-        />
-        {/* Radial fade overlay to blend edges */}
+      {/* Pastor Amos — right side portrait */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at center, transparent 20%, #1A0533 70%)" }}
-        />
+          className="absolute right-0 bottom-0 w-[340px] sm:w-[420px] lg:w-[500px]"
+          style={{ height: "85%" }}
+        >
+          <img
+            src="/pastor-amos.png"
+            alt="Pastor Amos Unogwu"
+            className="absolute w-[200%] max-w-none"
+            style={{
+              right: "-10%",
+              bottom: "0",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "70% top",
+              opacity: 0.85,
+              filter: "drop-shadow(-20px 0 40px #1A0533)",
+            }}
+          />
+          {/* Left fade to blend into background */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to right, #1A0533 0%, transparent 40%)",
+            }}
+          />
+          {/* Bottom fade */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to top, #1A0533 0%, transparent 30%)",
+            }}
+          />
+        </div>
       </div>
 
       {/* Decorative floating orbs */}
