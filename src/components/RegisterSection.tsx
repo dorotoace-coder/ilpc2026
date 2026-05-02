@@ -1,4 +1,4 @@
-import { MessageCircle, CheckCircle } from "lucide-react";
+import { CalendarPlus, CheckCircle } from "lucide-react";
 import SpotifySection from "./SpotifySection";
 import RegistrationForm from "./RegistrationForm";
 
@@ -11,8 +11,12 @@ const benefits = [
 ];
 
 const RegisterSection = () => {
-  const whatsappLink =
-    "https://wa.me/2348122166179?text=Hello%2C%20I%20would%20like%20to%20register%20for%20ILPC%202026%20-%20Fresh%20Oil%20for%20a%20New%20Season";
+  const calendarLink =
+    "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+    "&text=ILPC+2026+%E2%80%94+Fresh+Oil+for+a+New+Season" +
+    "&dates=20260605T080000Z/20260607T150000Z" +
+    "&details=International+Leaders+%26+Pastors+Conference.+Hosted+by+Pastor+Amos+Unogwu,+HBG+Ministry,+Akute,+Nigeria." +
+    "&location=HBG+Ministry,+Akute,+Nigeria";
 
   return (
     <section
@@ -65,19 +69,19 @@ const RegisterSection = () => {
         {/* Registration Form */}
         <RegistrationForm />
 
-        {/* WhatsApp Button */}
+        {/* Add to Calendar */}
         <div className="mb-4">
           <p className="text-white/40 text-xs uppercase tracking-widest mb-4 font-medium">
-            Or register via
+            Don't miss it
           </p>
           <a
-            href={whatsappLink}
+            href={calendarLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20BD5A] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-base sm:text-lg tracking-wide hover:shadow-xl hover:shadow-[#25D366]/30 transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-3 glass text-[#C9972A] px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-base sm:text-lg tracking-wide hover:shadow-xl hover:shadow-[#C9972A]/20 transition-all duration-300 hover:scale-105 border border-[#C9972A]/30"
           >
-            <MessageCircle className="w-6 h-6" />
-            Register via WhatsApp
+            <CalendarPlus className="w-6 h-6" />
+            Add to Calendar
           </a>
         </div>
 
