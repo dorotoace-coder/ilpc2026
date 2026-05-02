@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const ADMIN_EMAIL = "dorotoace@gmail.com";
+const ADMIN_EMAIL = "heartbeatofgodf@gmail.com";
 const FROM = "ILPC 2026 <noreply@heartbeatofgod.ca>";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
