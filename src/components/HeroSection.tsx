@@ -13,43 +13,6 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ background: "linear-gradient(160deg, #1A0533 0%, #2D0A4E 40%, #3D1560 100%)" }}
     >
-      {/* Pastor Amos — right side portrait */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute right-0 bottom-0 w-[340px] sm:w-[420px] lg:w-[500px]"
-          style={{ height: "85%" }}
-        >
-          <img
-            src="/pastor-amos.png"
-            alt="Pastor Amos Unogwu"
-            className="absolute w-[200%] max-w-none"
-            style={{
-              right: "-10%",
-              bottom: "0",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "70% top",
-              opacity: 0.85,
-              filter: "drop-shadow(-20px 0 40px #1A0533)",
-            }}
-          />
-          {/* Left fade to blend into background */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(to right, #1A0533 0%, transparent 40%)",
-            }}
-          />
-          {/* Bottom fade */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: "linear-gradient(to top, #1A0533 0%, transparent 30%)",
-            }}
-          />
-        </div>
-      </div>
-
       {/* Decorative floating orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 rounded-full bg-[#C9972A]/5 blur-3xl animate-float" />
