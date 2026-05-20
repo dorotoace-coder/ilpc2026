@@ -1,4 +1,4 @@
-import { Calendar, Clock, MapPin } from "lucide-react";
+import { Calendar, Clock, MapPin, Mic } from "lucide-react";
 
 const schedule = [
   {
@@ -7,7 +7,7 @@ const schedule = [
     title: "Arrival & Ablaze for Christ",
     events: [
       { time: "5:00 PM", session: "Registration & Accreditation" },
-      { time: "6:00 PM", session: "Leadership Masterclass — Ablaze for Christ" },
+      { time: "6:00 PM", session: "Leadership Masterclass — Ablaze for Christ", speaker: "Dr. Jide Ayangbesan" },
     ],
   },
   {
@@ -19,7 +19,7 @@ const schedule = [
       { time: "9:30 AM", session: "Session 1 — Fresh Oil for Ministry" },
       { time: "11:30 AM", session: "Session 2 — Navigating the New Season" },
       { time: "1:00 PM", session: "Lunch Break" },
-      { time: "5:00 PM", session: "Night of Supernatural Encounter" },
+      { time: "5:00 PM", session: "Night of Supernatural Encounter", speaker: "Dr. Jide Ayangbesan" },
     ],
   },
   {
@@ -97,9 +97,17 @@ const ScheduleSection = () => {
                             {event.time}
                           </span>
                         </div>
-                        <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-                          {event.session}
-                        </p>
+                        <div className="flex flex-col gap-0.5">
+                          <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
+                            {event.session}
+                          </p>
+                          {event.speaker && (
+                            <span className="flex items-center gap-1 text-[#C9972A]/80 text-[10px] font-semibold tracking-wide">
+                              <Mic className="w-2.5 h-2.5" />
+                              {event.speaker}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     ))}
                   </div>
