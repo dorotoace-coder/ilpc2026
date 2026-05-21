@@ -5,6 +5,55 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const ADMIN_EMAIL = "heartbeatofgodf@gmail.com";
 const FROM = "ILPC 2026 <noreply@heartbeatofgod.ca>";
 
+/** Write registration to Supabase inquiries table (non-blocking). */
+async function saveToSupabase(data: {
+  fullName: string;
+  email: string;
+  ministry: string;
+  designation: string;
+  desire: string;
+  submittedAt: string;
+}): Promise<void> {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_ANON_KEY;
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn("[supabase] SUPABASE_URL or SUPABASE_ANON_KEY not set — skipping DB write");
+    return;
+  }
+
+  const payload = {
+    full_name: data.fullName,
+    email: data.email,
+    type: "ilpc_2026_registration",
+    status: "new",
+    // Pack extra fields into message as structured JSON
+    message: JSON.stringify({
+      ministry: data.ministry,
+      designation: data.designation,
+      desire: data.desire,
+      submitted_at: data.submittedAt,
+    }),
+  };
+
+  const resp = await fetch(`${supabaseUrl}/rest/v1/inquiries`, {
+    method: "POST",
+    headers: {
+      apikey: supabaseKey,
+      Authorization: `Bearer ${supabaseKey}`,
+      "Content-Type": "application/json",
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!resp.ok) {
+    const body = await resp.text();
+    console.error(`[supabase] Insert failed (${resp.status}): ${body}`);
+  } else {
+    console.log(`[supabase] Registration saved for ${data.email}`);
+  }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -16,8 +65,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
+  const submittedAt = new Date().toISOString();
+
+  // 1. Persist to Supabase (non-blocking — never fails the request)
+  saveToSupabase({ fullName, email, ministry, designation, desire, submittedAt }).catch(
+    (err) => console.error("[supabase] Unexpected error:", err)
+  );
+
   try {
-    // 1. Notify admin
+    // 2. Notify admin
     await resend.emails.send({
       from: FROM,
       to: ADMIN_EMAIL,
@@ -36,7 +92,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `,
     });
 
-    // 2. Auto-reply to registrant
+    // 3. Auto-reply to registrant
     await resend.emails.send({
       from: FROM,
       to: email,
@@ -69,6 +125,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({ success: true });
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ error: "Failed to send emails" });
+    return res.status(500).json({ error: "Failed to send confirmation emails" });
   }
 }
