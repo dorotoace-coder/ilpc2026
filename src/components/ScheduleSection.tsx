@@ -17,7 +17,7 @@ const schedule = [
     events: [
       { time: "8:00 AM", session: "Registration & Accreditation" },
       { time: "9:30 AM", session: "Session 1 — Fresh Oil for Ministry" },
-      { time: "11:30 AM", session: "Session 2 — Navigating the New Season" },
+      { time: "11:30 AM", session: "Session 2 — Navigating the New Season", speaker: "Pastor Christopher Ehidiamen" },
       { time: "1:00 PM", session: "Lunch Break" },
       { time: "5:00 PM", session: "Night of Supernatural Encounter", speaker: "Dr. Jide Ayangbesan" },
     ],
