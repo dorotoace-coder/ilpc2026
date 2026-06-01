@@ -3,318 +3,504 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ILPC 2026 — Speaker Package | Dr. Jide Ayangbesan</title>
+  <title>ILPC 2026 — Speaker Invitation | Dr. Jide Ayangbesan</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: Georgia, 'Times New Roman', serif;
-      background: #f4f1eb;
+      background: #f0ece3;
       color: #1a1a1a;
-      padding: 40px 20px;
+      padding: 48px 20px;
     }
+
     .page {
-      max-width: 680px;
+      max-width: 700px;
       margin: 0 auto;
-      background: #fff;
-      border-top: 6px solid #C9972A;
-      padding: 56px 60px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+      background: #ffffff;
+      box-shadow: 0 6px 40px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      overflow: hidden;
     }
+
+    /* ── Top gold bar ── */
+    .top-bar {
+      height: 7px;
+      background: linear-gradient(90deg, #2D0A4E, #C9972A, #8650d4, #C9972A, #2D0A4E);
+    }
+
+    /* ── Letterhead ── */
     .letterhead {
+      background: linear-gradient(160deg, #1e0535 0%, #2D0A4E 100%);
+      padding: 40px 60px 36px;
       text-align: center;
-      border-bottom: 1px solid #e8dfc8;
-      padding-bottom: 28px;
-      margin-bottom: 36px;
+      position: relative;
     }
-    .letterhead h1 {
-      font-size: 28px;
+    .letterhead::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 60px; right: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);
+    }
+    .lh-logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+    .lh-title {
+      text-align: left;
+    }
+    .lh-title h1 {
+      font-family: Georgia, serif;
+      font-size: 26px;
       font-weight: 900;
-      color: #2D0A4E;
-      letter-spacing: 2px;
+      color: #ffffff;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
-    .letterhead .tagline {
+    .lh-tagline {
       font-size: 13px;
       color: #C9972A;
       font-style: italic;
-      margin-top: 4px;
-      letter-spacing: 1px;
-    }
-    .letterhead .dates {
-      font-size: 12px;
-      color: #888;
-      margin-top: 6px;
       letter-spacing: 0.5px;
+      margin-top: 3px;
     }
+    .lh-dates {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+      margin-top: 10px;
+    }
+
+    /* Confession banner */
+    .confession {
+      background: rgba(212,175,55,0.08);
+      border-top: 1px solid rgba(212,175,55,0.15);
+      border-bottom: 1px solid rgba(212,175,55,0.15);
+      padding: 10px 60px;
+      text-align: center;
+      font-size: 12px;
+      font-style: italic;
+      color: rgba(212,175,55,0.8);
+      letter-spacing: 0.5px;
+      background-color: #1a0330;
+    }
+
+    /* ── Body ── */
+    .body {
+      padding: 50px 60px;
+    }
+
     .date-line {
       font-size: 13px;
-      color: #888;
-      margin-bottom: 24px;
+      color: #999;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
     }
-    .salutation {
-      font-size: 17px;
-      color: #2D0A4E;
-      font-weight: bold;
-      margin-bottom: 18px;
-    }
-    p {
-      font-size: 15px;
-      line-height: 1.85;
-      color: #333;
-      margin-bottom: 16px;
-    }
-    .section-title {
+
+    /* Honour chip */
+    .honour-chip {
+      display: inline-block;
+      background: #fdf6e8;
+      border: 1px solid #e8d08a;
+      border-radius: 4px;
+      padding: 6px 16px;
       font-size: 11px;
       font-weight: bold;
-      color: #C9972A;
-      text-transform: uppercase;
+      color: #8a6400;
       letter-spacing: 1.5px;
-      margin: 32px 0 14px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
     }
-    .session-block {
+
+    .salutation {
+      font-size: 19px;
+      color: #2D0A4E;
+      font-weight: bold;
+      margin-bottom: 22px;
+      line-height: 1.4;
+    }
+
+    p {
+      font-size: 15.5px;
+      line-height: 1.9;
+      color: #2e2e2e;
+      margin-bottom: 18px;
+    }
+
+    .honour-quote {
+      margin: 32px 0;
+      padding: 20px 28px;
       background: #fdf8ee;
       border-left: 4px solid #C9972A;
       border-radius: 0 8px 8px 0;
-      padding: 18px 24px;
-      margin-bottom: 16px;
     }
-    .session-block .session-label {
-      font-size: 11px;
+    .honour-quote p {
+      font-size: 15px;
+      font-style: italic;
+      color: #5a3e00;
+      margin-bottom: 0;
+      line-height: 1.8;
+    }
+    .honour-quote .ref {
+      font-size: 12px;
+      font-weight: bold;
+      color: #C9972A;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      font-style: normal;
+    }
+
+    /* Section title */
+    .section-title {
+      font-size: 10px;
       font-weight: bold;
       color: #C9972A;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
+      margin: 36px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e8dfc8;
+    }
+
+    /* Session block */
+    .session-block {
+      background: #fdf9f2;
+      border: 1px solid #e8d89a;
+      border-left: 5px solid #C9972A;
+      border-radius: 0 10px 10px 0;
+      padding: 20px 26px;
+      margin-bottom: 18px;
+    }
+    .session-block .session-label {
+      font-size: 10px;
+      font-weight: bold;
+      color: #C9972A;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .session-block .session-label::before {
+      content: '✦';
+      font-size: 10px;
     }
     .detail-row {
       display: flex;
       gap: 12px;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
       font-size: 14px;
       align-items: baseline;
     }
     .detail-row .key {
-      color: #888;
-      min-width: 140px;
+      color: #999;
+      min-width: 150px;
       font-size: 12px;
       flex-shrink: 0;
+      letter-spacing: 0.3px;
     }
     .detail-row .val {
       color: #1a1a1a;
       font-weight: bold;
+      font-size: 14.5px;
     }
+
+    /* Logistics */
     .logistics-box {
-      background: #fafafa;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 18px 24px;
-      margin: 24px 0;
+      background: #f9f9f9;
+      border: 1px solid #e4e4e4;
+      border-radius: 10px;
+      padding: 22px 28px;
+      margin: 28px 0;
     }
     .logistics-box .label {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: bold;
-      color: #555;
+      color: #666;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
     }
     .logistics-item {
       font-size: 14px;
       color: #444;
-      padding: 6px 0;
-      border-bottom: 1px solid #eee;
-      line-height: 1.5;
+      padding: 10px 0;
+      border-bottom: 1px solid #eeeeee;
+      line-height: 1.65;
+      display: flex;
+      gap: 10px;
     }
-    .logistics-item:last-child {
-      border-bottom: none;
-    }
-    .logistics-item span {
+    .logistics-item:last-child { border-bottom: none; }
+    .logistics-item .li-key {
       color: #2D0A4E;
       font-weight: bold;
+      min-width: 130px;
+      font-size: 13px;
+      flex-shrink: 0;
     }
+
+    /* Signature */
     .signature {
-      margin-top: 40px;
+      margin-top: 44px;
+      padding-top: 28px;
       border-top: 1px solid #e8dfc8;
-      padding-top: 24px;
     }
-    .signature p {
-      margin-bottom: 4px;
+    .sig-close {
+      font-size: 15px;
       color: #555;
-      font-size: 14px;
+      margin-bottom: 20px;
+      line-height: 1.7;
     }
-    .signature .name {
-      font-size: 17px;
+    .sig-name {
+      font-size: 19px;
       font-weight: bold;
       color: #2D0A4E;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
-    .signature .title {
+    .sig-title {
       font-size: 12px;
       color: #C9972A;
       letter-spacing: 0.5px;
+      margin-bottom: 4px;
     }
-    .footer-note {
+    .sig-contact {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Footer */
+    .page-footer {
+      background: #2D0A4E;
+      padding: 16px 60px;
       text-align: center;
-      margin-top: 40px;
       font-size: 11px;
-      color: #bbb;
-      letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.8px;
+    }
+
+    /* Bottom bar */
+    .bottom-bar {
+      height: 5px;
+      background: linear-gradient(90deg, #C9972A, #2D0A4E, #8650d4, #2D0A4E, #C9972A);
     }
   </style>
 </head>
 <body>
   <div class="page">
 
+    <div class="top-bar"></div>
+
+    <!-- Letterhead -->
     <div class="letterhead">
-      <div style="display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:12px;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" role="img" aria-labelledby="title-j desc-j" style="height:64px;width:auto;">
-          <title id="title-j">HBG logo</title>
-          <desc id="desc-j">Purple HBG letters with a red flowing heart line.</desc>
+      <div class="lh-logo-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" style="height:68px;width:auto;">
           <defs>
-            <linearGradient id="purple-j" x1="0" x2="1" y1="0" y2="1">
+            <linearGradient id="pur" x1="0" x2="1" y1="0" y2="1">
               <stop offset="0" stop-color="#d8a0ff"/>
               <stop offset="0.55" stop-color="#a86ee8"/>
               <stop offset="1" stop-color="#8650d4"/>
             </linearGradient>
-            <linearGradient id="red-j" x1="0" x2="1" y1="0" y2="1">
+            <linearGradient id="red" x1="0" x2="1" y1="0" y2="1">
               <stop offset="0" stop-color="#ff1d25"/>
               <stop offset="0.55" stop-color="#e60012"/>
               <stop offset="1" stop-color="#b90016"/>
             </linearGradient>
-            <filter id="softShadow-j" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#06111f" flood-opacity="0.16"/>
-            </filter>
           </defs>
           <rect width="920" height="520" fill="none"/>
-          <g filter="url(#softShadow-j)">
-            <text x="70" y="338" font-family="Inter, Montserrat, Arial, sans-serif" font-size="215" font-weight="500" letter-spacing="2" fill="url(#purple-j)">HBG</text>
-            <path d="M222 128 C338 18 555 76 663 210 C710 85 842 20 902 111 C996 252 806 430 640 500 M663 210 C671 245 675 283 664 322" fill="none" stroke="url(#red-j)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M681 270 C706 316 690 365 662 365 C635 365 639 314 653 255" fill="url(#red-j)" opacity="0.96"/>
-            <path d="M680 274 C691 302 690 330 676 344" fill="none" stroke="#ff6a6a" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
-          </g>
+          <text x="70" y="338" font-family="Inter,Montserrat,Arial,sans-serif" font-size="215" font-weight="500" letter-spacing="2" fill="url(#pur)">HBG</text>
+          <path d="M222 128 C338 18 555 76 663 210 C710 85 842 20 902 111 C996 252 806 430 640 500 M663 210 C671 245 675 283 664 322" fill="none" stroke="url(#red)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M681 270 C706 316 690 365 662 365 C635 365 639 314 653 255" fill="url(#red)" opacity="0.96"/>
         </svg>
-        <div style="text-align:left;">
+        <div class="lh-title">
           <h1>ILPC 2026</h1>
-          <div class="tagline">Fresh Oil for a New Season</div>
+          <div class="lh-tagline">Fresh Oil for a New Season</div>
         </div>
       </div>
-      <div class="dates">June 5 – 7, 2026 &nbsp;·&nbsp; HBG Ministry, Akute, Nigeria</div>
+      <div class="lh-dates">International Leaders &amp; Pastors Conference &nbsp;·&nbsp; June 5–7, 2026 &nbsp;·&nbsp; HBG Ministry, Akute, Nigeria</div>
     </div>
 
-    <div class="date-line">May 23, 2026</div>
-
-    <div class="salutation">Dear Dr. Jide Ayangbesan,</div>
-
-    <p>
-      Grace and peace to you in the name of our Lord Jesus Christ.
-    </p>
-
-    <p>
-      On behalf of the entire ILPC 2026 planning team, we extend to you our warmest and
-      most heartfelt welcome as our featured speaker for the
-      <strong>International Leadership &amp; Prophetic Conference (ILPC) 2026 —
-      <em>Fresh Oil for a New Season</em></strong>. We are deeply honoured by your
-      commitment to this gathering, and we believe God has anointed you with a specific
-      word and mantle for this season that the leaders in that room need.
-    </p>
-
-    <p>
-      Pastors, ministers, missionaries, and leaders will come from across Nigeria
-      expecting a fresh encounter with God. You have been positioned at two of the most
-      pivotal moments in the three-day programme — and we are trusting God to move
-      mightily through you at each one.
-    </p>
-
-    <div class="section-title">Your Speaking Assignments</div>
-
-    <div class="session-block">
-      <div class="session-label">Assignment 1 — Friday Evening</div>
-      <div class="detail-row">
-        <span class="key">Session</span>
-        <span class="val">Leadership Masterclass — Ablaze for Christ</span>
-      </div>
-      <div class="detail-row">
-        <span class="key">Date</span>
-        <span class="val">Friday, June 5, 2026</span>
-      </div>
-      <div class="detail-row">
-        <span class="key">Time</span>
-        <span class="val">6:00 PM (WAT)</span>
-      </div>
-      <div class="detail-row">
-        <span class="key">Venue</span>
-        <span class="val">HBG Ministry, Akute, Nigeria</span>
-      </div>
-      <div class="detail-row">
-        <span class="key">Please Arrive By</span>
-        <span class="val">5:15 PM</span>
-      </div>
+    <div class="confession">
+      "And I will give you shepherds according to My heart, who will feed you with knowledge and understanding." — Jeremiah 3:15
     </div>
 
-    <div class="session-block">
-      <div class="session-label">Assignment 2 — Saturday Evening</div>
-      <div class="detail-row">
-        <span class="key">Session</span>
-        <span class="val">Night of Supernatural Encounter</span>
+    <!-- Body -->
+    <div class="body">
+
+      <div class="date-line">June 1, 2026</div>
+
+      <div class="honour-chip">✦ &nbsp; Official Speaker Invitation &nbsp; ✦</div>
+
+      <div class="salutation">
+        Dear Dr. Jide Ayangbesan,<br/>
+        <span style="font-size:14px; font-weight:normal; color:#888; font-style:italic; letter-spacing:0.3px;">Esteemed Servant of God · Father of Faith · Trusted Voice of the Spirit</span>
       </div>
-      <div class="detail-row">
-        <span class="key">Date</span>
-        <span class="val">Saturday, June 6, 2026</span>
+
+      <p>
+        Grace, peace, and the unceasing mercy of our Lord Jesus Christ be upon you,
+        your household, and the work of your hands.
+      </p>
+
+      <p>
+        It is with the deepest reverence, heartfelt gratitude, and a profound sense
+        of divine purpose that the Heartbeat of God Ministry and the entire ILPC 2026
+        family extends this formal invitation to you. We do not take lightly the honour
+        of having you stand before us — for we believe God Himself has directed your
+        steps to this gathering, and that the words He has placed in your mouth are
+        <em>specifically prepared for the leaders who will fill that room</em>.
+      </p>
+
+      <div class="honour-quote">
+        <p>
+          "We have not invited a speaker. We have received a father. We have not
+          scheduled a session. We have prepared an altar. Dr. Jide Ayangbesan,
+          you are welcome not merely as our guest — you are welcome as a gift from God
+          to the body of Christ in this season."
+        </p>
+        <div class="ref">— Pastor Amos Unogwu, Convener, ILPC 2026</div>
       </div>
-      <div class="detail-row">
-        <span class="key">Time</span>
-        <span class="val">5:00 PM (WAT)</span>
+
+      <p>
+        Pastors, ministers, evangelists, missionaries, and leaders will converge on
+        Akute, Nigeria from across the nation and beyond — hungry, thirsty, and in
+        desperate need of a fresh encounter with the living God. You have been
+        positioned at two of the most pivotal and high-expectation moments in our
+        three-day programme. We are trusting God to move through you with
+        <strong>extraordinary grace, prophetic clarity, and transforming power</strong>.
+      </p>
+
+      <p>
+        We honour the years of consecration that have shaped you. We honour the price
+        you have paid in prayer, in the Word, and in faithful ministry. And we honour
+        the God who has proven Himself through your life. It is that same God we are
+        expecting to show up mightily through you at ILPC 2026.
+      </p>
+
+      <div class="section-title">Your Confirmed Ministry Assignments</div>
+
+      <div class="session-block">
+        <div class="session-label">Assignment One &mdash; Friday Evening Session</div>
+        <div class="detail-row">
+          <span class="key">Session Title</span>
+          <span class="val">Leadership Masterclass — Ablaze for Christ</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Date</span>
+          <span class="val">Friday, June 5, 2026</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Ministry Time</span>
+          <span class="val">6:00 PM (West Africa Time)</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Venue</span>
+          <span class="val">HBG Ministry, Akute, Ogun State, Nigeria</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Please Arrive By</span>
+          <span class="val">5:15 PM — our team will receive you</span>
+        </div>
       </div>
-      <div class="detail-row">
-        <span class="key">Venue</span>
-        <span class="val">HBG Ministry, Akute, Nigeria</span>
+
+      <div class="session-block">
+        <div class="session-label">Assignment Two &mdash; Saturday Evening Session</div>
+        <div class="detail-row">
+          <span class="key">Session Title</span>
+          <span class="val">Night of Supernatural Encounter</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Date</span>
+          <span class="val">Saturday, June 6, 2026</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Ministry Time</span>
+          <span class="val">5:00 PM (West Africa Time)</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Venue</span>
+          <span class="val">HBG Ministry, Akute, Ogun State, Nigeria</span>
+        </div>
+        <div class="detail-row">
+          <span class="key">Please Arrive By</span>
+          <span class="val">4:15 PM — our team will receive you</span>
+        </div>
       </div>
-      <div class="detail-row">
-        <span class="key">Please Arrive By</span>
-        <span class="val">4:15 PM</span>
+
+      <div class="section-title">Hospitality &amp; Logistics</div>
+
+      <div class="logistics-box">
+        <div class="label">All arrangements are taken care of for you</div>
+        <div class="logistics-item">
+          <div class="li-key">Accommodation</div>
+          <div>You will be hosted with full comfort for the duration of the conference. Our hospitality team will communicate lodging details personally to ensure everything is to your satisfaction.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="li-key">Transportation</div>
+          <div>A dedicated vehicle will be arranged to receive you on arrival and convey you safely to and from the venue for every session. You will not need to arrange your own transport.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="li-key">Technical Support</div>
+          <div>Our A/V team will be on hand to load any presentations, slides, or media files before each session. Kindly send all materials at least 48 hours before the conference opens.</div>
+        </div>
+        <div class="logistics-item">
+          <div class="li-key">Point of Contact</div>
+          <div>For all arrangements and any needs that arise, please reach us at <strong>heartbeatofgodf@gmail.com</strong>. We will respond promptly.</div>
+        </div>
       </div>
+
+      <p>
+        Dr. Ayangbesan, our sincere desire is that you arrive rested, refreshed, and
+        completely free from any logistical concerns. Our team is committed to
+        handling every detail so that your full attention remains on the sacred
+        assignment God has given you. You are our honoured guest, and we will treat
+        you as such.
+      </p>
+
+      <p>
+        We are in prayer for you — for a weighty and fresh anointing as you prepare,
+        for strength in your body and clarity in your spirit, and for the grace to
+        deliver every word that Heaven has commissioned for this hour. We believe what
+        God speaks through you at ILPC 2026 will ignite a fire in the hearts of leaders
+        that will carry far beyond these three days — into their churches, their cities,
+        and their nations.
+      </p>
+
+      <p>
+        We are deeply grateful to God for your life, and we are honoured —
+        truly honoured — that you have said yes to this kingdom assignment.
+        We cannot wait to receive you with great joy. See you in June!
+      </p>
+
+      <div class="signature">
+        <div class="sig-close">
+          With great honour, deep gratitude, and joyful anticipation,<br/>
+          on behalf of the entire Heartbeat of God Ministry family —
+        </div>
+        <div class="sig-name">Pastor Amos Unogwu</div>
+        <div class="sig-title">Convener, ILPC 2026 &nbsp;·&nbsp; Host Pastor, Heartbeat of God Ministry</div>
+        <div class="sig-contact">heartbeatofgod.ca &nbsp;·&nbsp; heartbeatofgodf@gmail.com &nbsp;·&nbsp; Akute, Ogun State, Nigeria</div>
+      </div>
+
     </div>
 
-    <div class="logistics-box">
-      <div class="label">Logistics &amp; Hosting</div>
-      <div class="logistics-item"><span>Accommodation:</span> We are pleased to host you for the duration of the conference. Our team will be in touch with lodging details shortly.</div>
-      <div class="logistics-item"><span>Transportation:</span> A vehicle will be arranged to receive you and convey you to and from the venue for all sessions.</div>
-      <div class="logistics-item"><span>A/V Support:</span> Our technical team will be available to load any slides or media before each session. Please send materials at least 48 hours ahead.</div>
-      <div class="logistics-item"><span>Contact for Logistics:</span> heartbeatofgodf@gmail.com</div>
+    <div class="page-footer">
+      International Leaders &amp; Pastors Conference 2026 &nbsp;·&nbsp; HBG Ministry, Akute, Nigeria &nbsp;·&nbsp; heartbeatofgod.ca
     </div>
 
-    <p>
-      Dr. Ayangbesan, we want you to arrive, rest, and minister without any unnecessary
-      burden on your mind. Our team is dedicated to ensuring every detail is handled so
-      that your only focus is delivering what God has placed in your heart for this
-      gathering.
-    </p>
-
-    <p>
-      We are praying for you as you prepare — for a fresh and weighty anointing, for
-      rest in your body, and for divine precision in every word you speak. We believe
-      that what flows from your lips at ILPC 2026 will ignite a fire in leaders that
-      will spread far beyond these three days.
-    </p>
-
-    <p>
-      We look forward to receiving you with great honour. Thank you for saying yes to
-      this kingdom assignment. See you in June!
-    </p>
-
-    <div class="signature">
-      <p>Yours in Kingdom service,</p>
-      <br/>
-      <div class="name">Pastor Amos Unogwu</div>
-      <div class="title">Convener, ILPC 2026 &nbsp;·&nbsp; HBG Ministry</div>
-      <br/>
-      <p style="font-size:13px; color:#888;">heartbeatofgod.ca &nbsp;·&nbsp; heartbeatofgodf@gmail.com</p>
-    </div>
-
-    <div class="footer-note">
-      International Leadership &amp; Prophetic Conference 2026 &nbsp;·&nbsp; HBG Ministry, Akute, Nigeria
-    </div>
-
+    <div class="bottom-bar"></div>
   </div>
 </body>
 </html>
