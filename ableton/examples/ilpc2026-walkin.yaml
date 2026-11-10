@@ -1,0 +1,87 @@
+# ILPC 2026 — walk-in / countdown bed (original composition, Afro-gospel groove)
+# validate:  python -m ilpc_ableton validate examples/ilpc2026-walkin.yaml
+# MIDI:      python -m ilpc_ableton render examples/ilpc2026-walkin.yaml --out dist
+# into Live: python -m ilpc_ableton apply examples/ilpc2026-walkin.yaml
+# run show:  python -m ilpc_ableton show examples/ilpc2026-walkin.yaml --play
+title: ILPC 2026 Walk-in
+tempo: 98
+time_signature: [4, 4]
+key: A major
+seed: 2026
+
+tracks:
+  - {name: Drums, drums: true, color: "#2D0A4E", volume: 0.8,  instrument: "Drum Rack > Afro/Kit (GM map: kick C1/36)"}
+  - {name: Bass,  color: "#5B1A8C", volume: 0.8,  instrument: "Operator > Sub Bass / Drift > Round Bass"}
+  - {name: Keys,  color: "#C9972A", volume: 0.72, pan: -0.15, instrument: "Electric > Rhodes"}
+  - {name: Pad,   color: "#E8C66A", volume: 0.7,  instrument: "Drift > Warm Pad"}
+  - {name: Arp,   color: "#8E44AD", volume: 0.6,  pan: 0.25, instrument: "Wavetable > Pluck"}
+  - {name: Lead,  color: "#F5E6B8", volume: 0.7,  instrument: "Wavetable > Soft Lead"}
+
+scenes:
+  - name: Walk-in
+    bars: 8
+    color: "#2D0A4E"
+    clips:
+      Pad: {chords: "Amaj7 F#m7 Dmaj9 E7sus4", style: pad, octave: 3, velocity: 78,
+            cc: {74: [[0, 30], [32, 90]]}}          # filter opens across the scene (map CC74 in Live)
+      Arp: {chords: "Amaj7 F#m7 Dmaj9 E7sus4", style: arp, octave: 4, rate: 0.5, direction: updown, velocity: 70, humanize: 8}
+
+  - name: Groove
+    bars: 16
+    color: "#C9972A"
+    clips:
+      Drums:
+        humanize: 10
+        drums:
+          kick:         "x..x..x.x...x..."
+          snare:        "....x.......x..."
+          rim:          "..o.....o..o...."
+          closed_hat:   "o.xoo.xoo.xoo.xo"
+          shaker:       "gogogogogogogogo"
+          talking_drum: "..........o.o..x"
+      Bass: {chords: "Amaj7 F#m7 Dmaj9 E7sus4", style: bass, octave: 1, rhythm: "x--.x.o.x--.o.x.", velocity: 104}
+      Keys: {chords: "Amaj7 F#m7 Dmaj9 E7sus4", style: stabs, octave: 4, rhythm: ".x.x.x.x", velocity: 84, humanize: 6}
+      Pad:  {chords: "Amaj7 F#m7 Dmaj9 E7sus4", style: pad, octave: 3, velocity: 70}
+      Lead:
+        melody: "E5:1.5 C#5:0.5 B4:1 A4:1  F#4:1.5 A4:0.5 B4:2  D5:1.5 C#5:0.5 B4:1 A4:1  B4:3 r:1"
+        repeat: true
+        velocity: 92
+
+  - name: Breakdown
+    bars: 8
+    color: "#5B1A8C"
+    clips:
+      Pad:  {chords: "Dmaj9 E7sus4 C#m7 F#m7", style: pad, octave: 3, velocity: 72}
+      Keys: {chords: "Dmaj9 E7sus4 C#m7 F#m7", style: stabs, octave: 4, rhythm: "x-------", velocity: 70}
+      Drums: {drums: {shaker: "gogogogogogogogo", kick: "x..............."}}
+
+  - name: Countdown
+    bars: 8
+    color: "#E8C66A"
+    clips:
+      Drums:
+        drums:
+          kick:   "x...x...x...x..."
+          snare:  "....x.......x..."
+          closed_hat: "xxxxxxxxxxxxxxxx"
+          crash:  "x..............."
+          shaker: "gogogogogogogogo"
+      Bass: {chords: "E7sus4", style: bass, octave: 1, rhythm: "x.x.x.x.x.x.x.x.", velocity: 108}
+      Pad:  {chords: "E7sus4", style: pad, octave: 3, velocity: 84, cc: {74: [[0, 40], [32, 127]]}}
+      Arp:  {chords: "E7sus4", style: arp, octave: 4, rate: 0.25, octaves: 3, velocity: 80}
+
+arrangement: [Walk-in, Groove, Breakdown, Groove, Countdown]
+
+# Pre-service run: doors open on the Walk-in bed, groove builds, countdown lands on bar 49.
+show:
+  - {bar: 1,  fire_scene: Walk-in}
+  - {bar: 1,  ramp: {target: volume, track: Pad, from: 0.0, to: 0.7, bars: 8, curve: exp}}
+  - {bar: 9,  fire_scene: Groove}
+  - {bar: 25, fire_scene: Breakdown}
+  - {bar: 25, ramp: {target: volume, track: Keys, to: 0.55, bars: 4, curve: s}}
+  - {bar: 33, fire_scene: Groove}
+  - {bar: 33, set: {target: volume, track: Keys, value: 0.72}}
+  - {bar: 41, fire_scene: Countdown}
+  - {bar: 41, ramp: {target: volume, track: Arp, from: 0.3, to: 0.75, bars: 8, curve: exp}}
+  - {bar: 49, ramp: {target: volume, track: Pad, to: 0.0, bars: 4, curve: log}}
+  - {bar: 53, stop: true}
