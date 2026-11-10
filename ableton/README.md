@@ -11,6 +11,16 @@ It talks to Live through **[AbletonOSC](https://github.com/ideoforms/AbletonOSC)
 
 ---
 
+## 0. Fastest route: one command (macOS)
+
+Paste this into **Terminal**. It installs AbletonOSC, sets up the toolkit, opens Live, waits until you pick AbletonOSC as the control surface, then offers to build the ILPC 2026 walk-in music:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/dorotoace-coder/ilpc2026/claude/peaceful-dijkstra-oyo4fq/ableton/install-mac.sh | bash
+```
+
+You can safely run it again; an existing AbletonOSC copy is backed up. If you'd rather do each step by hand, follow section 1.
+
 ## 1. One-time setup (on the machine running Ableton)
 
 1. Download AbletonOSC: <https://github.com/ideoforms/AbletonOSC/archive/refs/heads/master.zip>. Unzip it and rename the folder to `AbletonOSC`.
